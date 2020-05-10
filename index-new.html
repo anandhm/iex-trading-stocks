@@ -159,13 +159,13 @@
         if (addTitle) filters.push('companyName');
         //let url = `${BASE_URL}?types=quote&symbols=${symbols.join(',')}&filter=${filters.join(',')}&token=${API_TOKEN}`;
         let url = `${BASE_URL}${symbols.join(',')}`;
-        alert(`${url}`);
+        alert('${url}');
 
         let counter = 0;
         fetch(url).then(response => response.json()).then(json => {
           symbols.forEach(symbol => {
             let data = json[counter++];
-            alert(`${data}`);
+            alert('${data}');
             if (typeof(data) === 'undefined' || !data.price) return;
 
             let formattedPrice = formatQuote(Number(data.price));
