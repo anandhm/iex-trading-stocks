@@ -173,39 +173,40 @@
 
             if (typeof(data) === 'undefined' || !data.price) return;
 
+            let sym = data.symbol;
             let formattedPrice = formatQuote(Number(data.price));
             let formattedChange = formatChange(data.change);
             let formattedChangePercent = formatChangePercent(data.changesPercentage);
             let formattedMarketCap = formatMarketCap(data.marketCap);
             let bgColorStyle = calculateBgColorStyle(data.changesPercentage)
 
-            document.querySelectorAll(`[data-symbol="${symbol}"] .stock-price`).forEach(e => {
+            document.querySelectorAll(`[data-symbol="${sym}"] .stock-price`).forEach(e => {
               e.innerHTML = formattedPrice;
               e.setAttribute('style', bgColorStyle);
             });
 
-            document.querySelectorAll(`[data-symbol="${symbol}"] .stock-change`).forEach(e => {
+            document.querySelectorAll(`[data-symbol="${sym}"] .stock-change`).forEach(e => {
               e.innerHTML = formattedChange;
               e.setAttribute('style', bgColorStyle);
             });
 
-            document.querySelectorAll(`[data-symbol="${symbol}"] .stock-change-pct`).forEach(e => {
+            document.querySelectorAll(`[data-symbol="${sym}"] .stock-change-pct`).forEach(e => {
               e.innerHTML = formattedChangePercent;
               e.setAttribute('style', bgColorStyle);
             });
 
-            document.querySelectorAll(`[data-symbol="${symbol}"] .stock-mkt-cap`).forEach(e => {
+            document.querySelectorAll(`[data-symbol="${sym}"] .stock-mkt-cap`).forEach(e => {
               e.innerHTML = formattedMarketCap;
               e.setAttribute('style', bgColorStyle);
             });
 
             if (addTitle) {
-              document.querySelectorAll(`[data-symbol="${symbol}"] .stock-symbol a`).forEach(e => {
+              document.querySelectorAll(`[data-symbol="${sym}"] .stock-symbol a`).forEach(e => {
                 e.setAttribute('title', data.name);
               });
             }
 
-            if (symbol === FAVICON_SYMBOL) {
+            if (sym === FAVICON_SYMBOL) {
               updateFavicon(data);
             }
           });
