@@ -85,8 +85,8 @@
       const PORTFOLIOS = portfoliosFromQueryParams() || DEFAULT_PORTFOLIOS;
       const REFRESH_SECONDS = 10;
       const BATCH_SIZE = 100;
-      const BASE_URL = 'https://financialmodelingprep.com/api/v3/quote';
-      const FAVICON_SYMBOL = '';
+      const BASE_URL = 'https://financialmodelingprep.com/api/v3/quote/';
+      const FAVICON_SYMBOL = 'SPY';
       const FAVICON_BASE_URL = 'https://d3v3cbxkdlyonc.cloudfront.net/stocks';
 
       let symbols = [FAVICON_SYMBOL];
@@ -158,18 +158,18 @@
         let filters = ['latestPrice', 'change', 'changePercent', 'marketCap'];
         if (addTitle) filters.push('companyName');
 
-        let url = `${BASE_URL}/${symbols.join(',')}`;
+        let url = `${BASE_URL}${symbols.join(',')}`;
         alert(`${url}`);
         
         let counter = 0;
         fetch(url).then(response => response.json()).then(json => {
-          alert('${response}');
+          alert(`${response}`);
           symbols.forEach(symbol => {
-            alert('${json}');
-            alert('${counter}');
+            alert(`${json}`);
+            alert(`${counter}`);
             let data = json[counter];
             counter = counter + 1;
-            alert('${data}');
+            alert(`${data}`);
             if (typeof(data) === 'undefined' || !data.price) return;
 
             let formattedPrice = formatQuote(Number(data.price));
