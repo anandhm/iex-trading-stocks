@@ -165,12 +165,12 @@
         fetch(url).then(response => response.json()).then(json => {
           symbols.forEach(symbol => {
             console.log(`JSON: ${json}`);
-            console.log(`JSON.stringify: ` + JSON.stringify(json) );
             console.log(`COUNTER: ${counter}`);
-            let data = JSON.parse(json[counter]);
+            let data = json[counter];
             counter = counter + 1;
             console.log(`DATA: ${data}`);
             console.log(`DATA.stringify: ` + JSON.stringify(data) );
+            console.log(`DATA.parse: ` + JSON.parse(data) );
             if (typeof(data) === 'undefined' || !data.price) return;
 
             let formattedPrice = formatQuote(Number(data.price));
