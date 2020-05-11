@@ -71,9 +71,6 @@
         {'name': 'Mutual Funds', 'symbols': ['VCAIX', 'VTIVX', 'VTWO']},
         {'name': 'Money market', 'symbols': ['SPAXX', 'FDRXX']}        
       ];
-      const DEFAULT_PORTFOLIOS1 = [
-        {'name': 'Stocks', 'symbols': ['AAPL', 'FB']}
-        ];
 
       // register for a token at https://iexcloud.io/
       const API_TOKEN = 'pk_caf735282303420da9dda847582c7351';
@@ -163,10 +160,10 @@
        
         let counter = 0;
         fetch(url).then(response => response.json()).then(json => {
-          symbols.forEach(symbol => {
+          json.forEach(data => {
             console.log(`JSON: ${json}`);
             console.log(`COUNTER: ${counter}`);
-            let data = json[counter];
+           // let data = json[counter];
             counter = counter + 1;
             console.log(`DATA: ${data}`);
             console.log(`DATA.stringify: ` + JSON.stringify(data) );
