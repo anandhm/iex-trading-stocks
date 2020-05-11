@@ -170,7 +170,7 @@
             counter = counter + 1;
             console.log(`DATA: ${data}`);
             console.log(`DATA.stringify: ` + JSON.stringify(data) );
-            console.log(`DATA.parse: ` + JSON.parse(data) );
+
             if (typeof(data) === 'undefined' || !data.price) return;
 
             let formattedPrice = formatQuote(Number(data.price));
