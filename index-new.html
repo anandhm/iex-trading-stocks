@@ -273,7 +273,7 @@
         if (changePercent === undefined) return '';
 
         let rgbColor = changePercent > 0 ? '0,255,0' : '255,0,0';
-        let rgbOpacity = Math.min(Math.abs(changePercent) * 20, 1);
+        let rgbOpacity = Math.min(Math.abs(changePercent/100) * 20, 1);
 
         return `background-color: rgba(${rgbColor}, ${rgbOpacity})`;
       }
