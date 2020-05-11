@@ -157,8 +157,9 @@
       function updateDataForBatch(symbols, addTitle) {
         let filters = ['latestPrice', 'change', 'changePercent', 'marketCap'];
         if (addTitle) filters.push('companyName');
-        //let url = `${BASE_URL}?types=quote&symbols=${symbols.join(',')}&filter=${filters.join(',')}&token=${API_TOKEN}`;
-        let url = `${BASE_URL}${symbols.join(',')}`;
+        let url = `${BASE_URL}?types=quote&symbols=${symbols.join(',')}&filter=${filters.join(',')}&token=${API_TOKEN}`;
+        alert(`${url}`);
+        url = `${BASE_URL}${symbols.join(',')}`;
         alert(`${url}`);
 
         let counter = 0;
