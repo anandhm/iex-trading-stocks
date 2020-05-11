@@ -72,7 +72,7 @@
         {'name': 'Money market', 'symbols': ['SPAXX', 'FDRXX']}        
       ];
       const DEFAULT_PORTFOLIOS = [
-        {'name': 'Stocks', 'symbols': ['AAPL']}
+        {'name': 'Stocks', 'symbols': ['AAPL', 'FB']}
         ];
 
       // register for a token at https://iexcloud.io/
@@ -201,13 +201,13 @@
 
             if (addTitle) {
               document.querySelectorAll(`[data-symbol="${symbol}"] .stock-symbol a`).forEach(e => {
-                e.setAttribute('title', data.quote.companyName);
+                e.setAttribute('title', data.name);
               });
             }
 
-           // if (symbol === FAVICON_SYMBOL) {
-           //   updateFavicon(data.quote);
-           // }
+            if (symbol === FAVICON_SYMBOL) {
+              updateFavicon(data);
+            }
           });
         });
       }
