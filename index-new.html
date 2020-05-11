@@ -165,6 +165,7 @@
         fetch(url).then(response => response.json()).then(json => {
           symbols.forEach(symbol => {
             console.log(`JSON: ${json}`);
+            console.log(`JSON.stringify: ` + JSON.stringify(json) );
             console.log(`COUNTER: ${counter}`);
             let data = json[counter];
             counter = counter + 1;
