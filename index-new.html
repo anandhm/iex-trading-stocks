@@ -167,9 +167,10 @@
             console.log(`JSON: ${json}`);
             console.log(`JSON.stringify: ` + JSON.stringify(json) );
             console.log(`COUNTER: ${counter}`);
-            let data = json[counter];
+            let data = json[counter].json();
             counter = counter + 1;
             console.log(`DATA: ${data}`);
+            console.log(`DATA.stringify: ` + JSON.stringify(data) );
             if (typeof(data) === 'undefined' || !data.price) return;
 
             let formattedPrice = formatQuote(Number(data.price));
