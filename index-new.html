@@ -156,17 +156,10 @@
         if (addTitle) filters.push('companyName');
 
         let url = `${BASE_URL}${symbols.join(',')}`;
-        console.log(`URL: ${url}`);
        
         let counter = 0;
         fetch(url).then(response => response.json()).then(json => {
           json.forEach(data => {
-            console.log(`JSON: ${json}`);
-            console.log(`COUNTER: ${counter}`);
-           // let data = json[counter];
-            counter = counter + 1;
-            console.log(`DATA: ${data}`);
-            console.log(`DATA.stringify: ` + JSON.stringify(data) );
 
             if (typeof(data) === 'undefined' || !data.price) return;
 
