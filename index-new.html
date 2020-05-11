@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <title>Live Stocks!</title>
+    <title>New Live Stocks!</title>
     <link rel="icon" href="https://d3v3cbxkdlyonc.cloudfront.net/stocks/favicon.ico">
     <link rel="apple-touch-icon" href="https://d3v3cbxkdlyonc.cloudfront.net/stocks/apple-touch-icon.png">
     <meta name="description" content="A free, lightweight, blazing-fast page to get stock quotes using the IEX API">
@@ -53,7 +53,7 @@
     <div class="stocks-container"></div>
 
     <p class="attribution">
-      Data provided for free by <a href="https://iextrading.com/developer/" target="_blank">IEX</a>.
+      Data provided for free by <a href="https://financialmodelingprep.com/api/v3/quote/" target="_blank">Financial Modeling Prep</a>.
       Subject to <a href="https://iextrading.com/api-exhibit-a/" target="_blank">IEX Exhibit A</a>.
     </p>
 
@@ -76,7 +76,7 @@
         ];
 
       // register for a token at https://iexcloud.io/
-      const API_TOKEN = 'pk_caf735282303420da9dda847582c7351';
+      const API_TOKEN = 'YOUR_TOKEN_HERE';
 
       if (API_TOKEN === 'YOUR_TOKEN_HERE') {
         alert('You need to register for a token at https://iexcloud.io/');
@@ -157,16 +157,17 @@
       function updateDataForBatch(symbols, addTitle) {
         let filters = ['latestPrice', 'change', 'changePercent', 'marketCap'];
         if (addTitle) filters.push('companyName');
+
         let url = `${BASE_URL}?types=quote&symbols=${symbols.join(',')}&filter=${filters.join(',')}&token=${API_TOKEN}`;
         alert(`${url}`);
         url = `${BASE_URL}/${symbols.join(',')}`;
         alert(`${url}`);
-
+        
         let counter = 0;
         fetch(url).then(response => response.json()).then(json => {
           symbols.forEach(symbol => {
             let data = json[counter++];
-            alert(`${data}`);
+            alert('${data}');
             if (typeof(data) === 'undefined' || !data.price) return;
 
             let formattedPrice = formatQuote(Number(data.price));
