@@ -64,14 +64,14 @@
     <script>
       'use strict';
 
-      const DEFAULT_PORTFOLIOS1 = [
+      const DEFAULT_PORTFOLIOS = [
         {'name': 'Index ETFs', 'symbols': ['SPY', 'VOO', 'DIA', 'ONEQ', 'VB']},
         {'name': 'ETFs', 'symbols': ['FNGD', 'FNGU']},
         {'name': 'Stocks', 'symbols': ['AAPL', 'AMZN', 'BRK.B', 'FB', 'MSFT', 'NFLX', 'ORCL', 'TSLA']},
         {'name': 'Mutual Funds', 'symbols': ['VCAIX', 'VTIVX', 'VTWO']},
         {'name': 'Money market', 'symbols': ['SPAXX', 'FDRXX']}        
       ];
-      const DEFAULT_PORTFOLIOS = [
+      const DEFAULT_PORTFOLIOS1 = [
         {'name': 'Stocks', 'symbols': ['AAPL', 'FB']}
         ];
 
@@ -237,7 +237,7 @@
 
       function formatChangePercent(value) {
         if (value === null || value === undefined) return '';
-        return (value * 100).toFixed(1) + '%';
+        return (value).toFixed(1) + '%';
       }
 
       function formatQuote(value) {
